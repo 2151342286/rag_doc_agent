@@ -15,8 +15,12 @@
 # 1. 安装依赖
 pip install -r requirements.txt
 
-# 2. 配置 API Key（创建 config.py）
-os.environ["DASHSCOPE_API_KEY"] = "your-key"
+# 2. 配置环境（创建。env文件）
+。env文件内容：
+LLM_MODEL_ID="xxx"
+LLM_API_KEY= "xxx"
+LLM_BASE_URL="xxx"
+EMBEDDING_MODEL_ID="xxx"
 
 # 3. 启动
 streamlit run app.py
@@ -25,11 +29,18 @@ streamlit run app.py
 ## 📁 项目结构
 
 ```
+├── __pycache__/
 ├── app.py                 # 前端界面
 ├── backend/
 │   ├── agent.py          # RAG Agent
-│   └── document_manager.py # 文档管理
+│   └── document_manager.py # 文件管理类
 └── data/                 # 数据存储
+│   ├── chroma_db/         # 向量库
+│   └── uploaded_files/ # 上传的文件
+|   └──documents_metadata.json # 文件元数据（简要信息）
+└── config.py  # 配置文件
+| 
+└── 。env  # 环境变量 
 ```
 
 ## 🔧 核心依赖
