@@ -135,11 +135,9 @@ class DocumentManager:
         fingerprint = self._get_document_fingerprint(file_path)
 
         if fingerprint in self.fingerprints:
-            print("文档已经加载过了，无需重复加载！")
             return "文档已经加载过了，无需重复加载！"
         
         if doc_id in self.document_names:
-            print("文档名称已存在，请更换名称后再试！")
             return "文档名称已存在，请更换名称后再试！"
         
         # 2. 确保上传目录存在，复制文件到上传目录，并保存元数据
